@@ -9,6 +9,7 @@ const previous = document.querySelector(".previous");
 const next = document.querySelector(".next");
 const card = document.querySelector(".card");
 const search = document.querySelector("#search");
+const input = document.getElementsByTagName('input');
 
 // ------ Use FETCH to retrieve data from the API
 fetch(urlAPI)
@@ -96,23 +97,23 @@ modalClose.addEventListener('click', () => {
 });
 
 // Create a Search Functionality
-      
-const names = document.querySelectorAll('.text-container h2');
-search.addEventListener('click', searchUser); 
-   function searchUser () {
-        for (let i = 0; i < names.length; i++) {
-         
-            if (names[i].innerHTML.toLowerCase().includes(input.value.toLowerCase())) {
-                card.style.display = '';
-            } else {
-                 card.style.display = 'none';
-            }
-        }
-        
-   }
 
         
-
+search.addEventListener('keyup', e => {
+    const searchEmployee = e.target.value.toLowerCase(); //hold whatever the user types in the search input and transform it to lower case
+    const userProfile = document.querySelectorAll('.card'); //select the employees cards
+  //the for loot goes through all employees cards and select their names and transform them to lower case.
+    for (let i = 0; i < userProfile.length; i++) {
+      const employeeName = document.querySelectorAll('.name');
+      const name = employeeName[i].innerText.toLowerCase();
+  //if the name typed is included in our employee list, then display, if not, do not display
+      if (name.includes(searchEmployee)) {
+        userProfile[i].style.display = '';
+      } else {
+        userProfile[i].style.display = 'none';
+      }
+    }
+  });
 
 
 
