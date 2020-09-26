@@ -1,0 +1,98 @@
+/* GENERAL STYLING */
+* {
+    box-sizing: border-box;
+}
+
+header {
+    width: 90%;
+    margin: 30px auto 0;
+    color: #8FBC8F;
+}
+
+
+/* MODAL WINDOW */
+body {
+    position: relative;
+    max-width: 100%;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(100, 100, 100, 0.4);
+}
+.modal {
+    width: 375px;
+    margin: 15% auto auto;
+    text-align: center;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #8FBC8F;
+    border-radius: 5px;
+    padding: 30px 20px;
+}
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+
+/* FLEXBOX */
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+}
+/* individual cards styling */
+.card {
+    width: 100%;
+    height: 140px;
+    border: 1px solid #8FBC8F;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding: 20px 0;
+    margin: 20px 0;
+    border-radius: 5px;;
+}
+.avatar {
+    width: 70px;
+    border-radius: 50%;
+    display: block;
+    margin-left: 30px;
+}
+.text-container {
+    margin-left: 40px;
+}
+
+
+/* BREAKPOINTS */
+@media (min-width: 768px) {
+    .grid-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 90%;
+        justify-content: space-between;
+    }
+    .card {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 90%;
+    }
+    .card {
+        width: 30%;
+    }
+}
