@@ -45,39 +45,41 @@ function displayEmployee(data) {
 }
 
 //Create a displayModal
-function displayModal(index) {
+
     // using destructuring instead of:  //(sample) let name = employees.name
 
-    let { 
-        name, 
-        dob, 
-        phone, 
-        email, 
-        location: {city, street, state, postcode},
-        picture, 
-    } = employees[index];
+    function displayModal(index) {
+        let { 
+            name, 
+            dob, 
+            phone, 
+            email, 
+            location: { city, street, state, postcode }, 
+            picture } = employees[index];
 
-    let date = new Date(dob.date);
-    
-    const modalHTML = `
-    <div class="modal-close></div>
-    <div class="card" data-index="${index}">
-    <img class="avatar" src="${picture.large}">
-    <div class="text-container">
-    <h2 class="name">${name.first} ${name.last}</h2>
-    <p class="email">${email}</p>
-    <p class="address">${city}</p>
-    <hr />
-    <p>${phone}</p>
-    <p class="address">${street.number},${street.name}, ${state} ${postcode}</p>
-    <p>Birthday:
-    ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</P>
-    </div>
-    `;
+        let date = new Date(dob.date);    
+      
+        // building the overlay modal for the inner HTML 
+        const displayEmployeeCard =`
+                <img class="avatar" src="${picture.large}" alt="Photo of ${name.first} ${name.last}">
+                <div class="modal-text">
+                        <h2 class="name">${name.first} ${name.last}</h2>
+                        <p class="email">${email}</p>
+                        <p class="address">${city}</p>
+                        <hr/>
+                        <p>${phone}</p>
+                        <p class="address">${street.number} ${street.name}, ${state} ${postcode}</p>
+                        <p>Birthday: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
+                </div>
+                `;
+                 
+          // making the overlay visible
+          overlay.classList.remove('hidden');
+          modalContainer.innerHTML = displayEmployeeCard;
+      }
 
-    overlay.classList.remove('hidden');
-    modalContainer.innerHTML = modalHTML;
-}
+ 
+
 
 
 
