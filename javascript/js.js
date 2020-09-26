@@ -7,6 +7,8 @@ const modalContainer = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.modal-close');
 const previous = document.querySelector(".previous");
 const next = document.querySelector(".next");
+const card = document.querySelector(".card");
+const search = document.querySelector("#search");
 
 // ------ Use FETCH to retrieve data from the API
 fetch(urlAPI)
@@ -92,3 +94,13 @@ gridContainer.addEventListener('click', e => {
 modalClose.addEventListener('click', () => {
     overlay.classList.add('hidden');
 });
+
+// Create a Search Functionality
+      //Create an array with the users name and last name
+let employeesName = [];
+function displayEmployee() {
+    for(let i = 0; i < employees.length; i++){
+        employeesName.push(`${employee.name.first} ${employee.name.last}`) 
+    }
+}
+

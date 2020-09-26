@@ -8,7 +8,14 @@ header {
     margin: 30px auto 0;
     color: #8FBC8F;
 }
-
+h1 {
+    text-align: center;
+    font-size: 28px;
+}
+p { 
+    color: grey;
+padding: 3px 0;
+}
 
 /* MODAL WINDOW */
 body {
@@ -32,7 +39,14 @@ body {
     border: 1px solid #8FBC8F;
     border-radius: 5px;
     padding: 30px 20px;
+    
 }
+.modal .avatar {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
 
 .hidden {
     display: none;
@@ -91,6 +105,21 @@ button:hover {
     justify-content: space-between;
 }
 
+/* Search input */
+input {
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+    border: 1px solid #8FBC8F;
+    border-radius: 5px;
+}
+
+::placeholder {
+    font-size: 12px;
+    font-style: italic;
+    padding: 0 5px 5px;
+  
+}
 
 /* BREAKPOINTS */
 @media (min-width: 768px) {
@@ -101,7 +130,17 @@ button:hover {
         justify-content: space-between;
     }
     .card {
-        width: 45%;
+        width: 48%;
+    }
+    .avatar {
+        width: 100px;
+    }
+    p {
+        font-size: 12px;
+      
+    }
+    input {
+        width: 40%;
     }
 }
 
