@@ -5,26 +5,29 @@ const gridContainer = document.querySelector('.grid-container'); //stores the DO
 const overlay = document.querySelector('.overlay');
 const modalContainer = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.modal-close');
+const previous = document.querySelector(".previous");
+const next = document.querySelector(".next");
 
 // ------ Use FETCH to retrieve data from the API
 fetch(urlAPI)
-.then(res => res.json())
-.then(res => res.results)
-.then(displayEmployees)
-.catch(err => console.log(err))
+.then((response) => response.json()) //reads the response and returns a promise
+.then((data) => data.results) // returns the actual JSON data
+.then(displayEmployee) //displays the data into the page
+.catch((err) => console.log(err))
 
 //------ Create displayEmployees function
-function displayEmployees(Data) {
-    employees = Data;
+function displayEmployee(data) {
+    employees = data;
 
     let employeeHTML ='';
 
     //loop through each employee
     employees.forEach((employee, index) => {
+        let picture = employee.picture;
         let name = employee.name;
         let email = employee.email;
         let city = employee.location.city;
-        let picture = employee.picture;
+        
         //att each employee to the HTML
         employeeHTML += `
         <div class="card" data-index="${index}">
@@ -37,6 +40,8 @@ function displayEmployees(Data) {
         </div>
         `
     });
+    
+  gridContainer.innerHTML = employeeHTML;
 }
 
 //Create a displayModal
@@ -55,8 +60,9 @@ function displayModal(index) {
     let date = new Date(dob.date);
     
     const modalHTML = `
+    <div class="modal-close></div>
     <div class="card" data-index="${index}">
-    <img class="avatar! src="${picture.large}">
+    <img class="avatar" src="${picture.large}">
     <div class="text-container">
     <h2 class="name">${name.first} ${name.last}</h2>
     <p class="email">${email}</p>
@@ -72,6 +78,8 @@ function displayModal(index) {
     overlay.classList.remove('hidden');
     modalContainer.innerHTML = modalHTML;
 }
+
+
 
 //Event lisener
 gridContainer.addEventListener('click', e => {
