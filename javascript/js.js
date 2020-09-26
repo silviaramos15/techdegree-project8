@@ -34,7 +34,7 @@ function displayEmployee(data) {
         employeeHTML += `
         <div class="card" data-index="${index}">
             <img class="avatar" src="${picture.large}">
-            <div class="text-container">
+            <div class="text-container user">
                 <h2 class="name">${name.first} ${name.last}</h2>
                 <p class="email">${email}</p>
                 <p class="address">${city}</p>
@@ -96,11 +96,23 @@ modalClose.addEventListener('click', () => {
 });
 
 // Create a Search Functionality
-      //Create an array with the users name and last name
-let employeesName = [];
-function displayEmployee() {
-    for(let i = 0; i < employees.length; i++){
-        employeesName.push(`${employee.name.first} ${employee.name.last}`) 
-    }
-}
+      
+const names = document.querySelectorAll('.text-container h2');
+search.addEventListener('click', searchUser); 
+   function searchUser () {
+        for (let i = 0; i < names.length; i++) {
+         
+            if (names[i].innerHTML.toLowerCase().includes(input.value.toLowerCase())) {
+                card.style.display = '';
+            } else {
+                 card.style.display = 'none';
+            }
+        }
+        
+   }
+
+        
+
+
+
 
