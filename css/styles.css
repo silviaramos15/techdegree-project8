@@ -33,12 +33,7 @@ body {
     border-radius: 5px;
     padding: 30px 20px;
 }
-.modal-close {
-    position: absolute;
-    right: 15px;
-    top: 5px;
-    cursor: pointer;
-}
+
 .hidden {
     display: none;
 }
@@ -71,6 +66,29 @@ body {
 }
 .text-container {
     margin-left: 40px;
+}
+
+/* BUTTONS */
+.modal-close {
+    position: absolute;
+    right: 2px;
+    top: 5px;
+}
+button {
+    background-color: #8FBC8F;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+button:hover {
+    background-color: #bcd7bc;
+    
+}
+
+.modal-nav {
+    display: flex;
+    justify-content: space-between;
 }
 
 

@@ -61,8 +61,8 @@ function displayEmployee(data) {
       
         // building the overlay modal for the inner HTML 
         const displayEmployeeCard =`
-                <img class="avatar" src="${picture.large}" alt="Photo of ${name.first} ${name.last}">
-                <div class="modal-text">
+                <img class="avatar" src="${picture.large}" alt="Photo of ${name.first} ${name.last}"> 
+                <div class="text-container>
                         <h2 class="name">${name.first} ${name.last}</h2>
                         <p class="email">${email}</p>
                         <p class="address">${city}</p>
@@ -78,10 +78,6 @@ function displayEmployee(data) {
           modalContainer.innerHTML = displayEmployeeCard;
       }
 
- 
-
-
-
 
 //Event lisener
 gridContainer.addEventListener('click', e => {
@@ -94,5 +90,5 @@ gridContainer.addEventListener('click', e => {
 });
 
 modalClose.addEventListener('click', () => {
-    overlay.classList.add("hidden");
+    overlay.classList.add('hidden');
 });
