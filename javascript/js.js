@@ -10,6 +10,9 @@ const next = document.querySelector(".next");
 const card = document.querySelector(".card");
 const search = document.querySelector("#search");
 const input = document.getElementsByTagName('input');
+const back = document.querySelector('.previous');
+const forth = document.querySelector('.next');
+
 
 // ------ Use FETCH to retrieve data from the API
 fetch(urlAPI)
@@ -82,13 +85,31 @@ function displayEmployee(data) {
       }
 
 
-//Event lisener
+//Event listener
 gridContainer.addEventListener('click', e => {
     if(e.target !== gridContainer) {
         const card = e.target.closest(".card");
-        const index = card.getAttribute('data-index');
-
+        const index = card.getAttribute('data-index'); //position of the employee
         displayModal(index);
+
+       //Switch back and forth between employees whe the modal window is open     
+      //add event listeners to forth and back arrows:
+      //if the current index is - than the length of the employees, +1 and display the current employee. If clicked on back and the index is + than 0, display current employee.
+        let currentIndex = index; //storing index employee
+  
+        forth.addEventListener('click', () => {     
+          if(currentIndex < employees.length - 1) {
+            currentIndex++;
+            displayModal(currentIndex);
+          } 
+        });
+        back.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            displayModal(currentIndex);
+          }
+        });
+      
     }
 });
 
@@ -115,23 +136,7 @@ search.addEventListener('keyup', e => {
     }
   });
 
-  //Switch back and forth between employees whe the modal window is open
-const back = document.querySelector('.previous');
-const forth = document.querySelector('.next');
 
-let currentIndex = 0; //storing index with value 0
 
-//add event listeners to forth and back arrows:
-  //if the current index is - than the length of the employees, +1 and display the current employee. If clicked on back and the index is + than 0, display current employee.
-forth.addEventListener('click', () => {     
-  if(currentIndex < employees.length - 1) {
-    currentIndex++;
-    displayModal(currentIndex);
-  } 
-});
-back.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    displayModal(currentIndex);
-  }
-});
+
+
