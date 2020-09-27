@@ -115,5 +115,23 @@ search.addEventListener('keyup', e => {
     }
   });
 
+  //Switch back and forth between employees whe the modal window is open
+const back = document.querySelector('.previous');
+const forth = document.querySelector('.next');
 
+let currentIndex = 0; //storing index with value 0
 
+//add event listeners to forth and back arrows:
+  //if the current index is - than the length of the employees, +1 and display the current employee. If clicked on back and the index is + than 0, display current employee.
+forth.addEventListener('click', () => {     
+  if(currentIndex < employees.length - 1) {
+    currentIndex++;
+    displayModal(currentIndex);
+  } 
+});
+back.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    displayModal(currentIndex);
+  }
+});

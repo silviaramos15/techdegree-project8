@@ -5,12 +5,17 @@
 
 header {
     width: 90%;
-    margin: 30px auto 0;
+    margin: 50px auto 0;
+    padding-top: 20px;;
     color: #8FBC8F;
 }
 h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 28px;    
+}
+h2 {
+    color: #8FBC8F;
+;
 }
 p { 
     color: grey;
@@ -21,6 +26,7 @@ padding: 3px 0;
 body {
     position: relative;
     max-width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 .overlay {
     position: absolute;
@@ -73,10 +79,10 @@ body {
     cursor: pointer;
 }
 .avatar {
-    width: 70px;
+    width: 75px;
     border-radius: 50%;
     display: block;
-    margin-left: 30px;
+    margin-left: 10%;
 }
 .text-container {
     margin-left: 40px;
@@ -112,6 +118,14 @@ input {
     display: block;
     border: 1px solid #8FBC8F;
     border-radius: 5px;
+    background-image: url('../images/search-solid.svg');
+    background-position: 97% ;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    z-index: 2;
+}
+input:focus{
+    background-color: #f4f8f4;
 }
 
 ::placeholder {
@@ -142,14 +156,22 @@ input {
     input {
         width: 40%;
     }
+    .text-container {
+        margin-left: 35px;
+    }
+    .avatar {
+        width: 60px;
+        margin-left: 20px;
+    }
 }
 
 @media (min-width: 1024px) {
     .grid-container {
         flex-direction: row;
         flex-wrap: wrap;
-        max-width: 90%;
+        width: 100%;
     }
+  
     .card {
         width: 33%;
     }
